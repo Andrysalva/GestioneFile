@@ -10,7 +10,7 @@
         android:id="@+id/btn_leggi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="leggi"
+        android:text="@string/leggi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.767"
@@ -36,7 +36,7 @@
         android:id="@+id/btn_scrivi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scrivi"
+        android:text="@string/scrivi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.232"
@@ -50,13 +50,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="inserisci testo"
+        android:hint="@string/inserisci_testo"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.071"
+        tools:ignore="TextContrastCheck"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
