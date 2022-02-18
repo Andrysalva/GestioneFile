@@ -4,10 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 public class GestoreFile {
@@ -51,6 +53,23 @@ public class GestoreFile {
         } catch (IOException e) {
             Log.e("gestione","errore nella lettura");
             esito = "errore";
+        }
+        return esito;
+    }
+
+    public String scriviFileBuffered(String nf, String content, Context c){
+        String esito = "File creato con successo ";
+        BufferedWriter writer;
+        try{
+            writer = new BufferedWriter(new OutputStreamWriter(c.openFileOutput(nf,Context.MODE_PRIVATE)));
+            writer.write(content);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            Log.e("gestione","file inesistente");
+            esito = "file inesistente";
+        } catch (IOException e) {
+            Log.e("gestione","errore generico nella lettura");
+            esito = "errore generico nella lettura";
         }
         return esito;
     }

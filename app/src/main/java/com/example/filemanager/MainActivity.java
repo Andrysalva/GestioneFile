@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button btn_leggi;
     Button btn_scrivi;
+    Button btn_scrivi_bf;
     TextView testo;
     EditText text;
     GestoreFile gf;
@@ -35,10 +36,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), gf.scriviFile("fileDaLeggere.txt",text.getText().toString(),getApplicationContext()), Toast.LENGTH_LONG).show();
             }
         });
+        btn_scrivi_bf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), gf.scriviFileBuffered("fileDaLeggere.txt",text.getText().toString(),getApplicationContext()), Toast.LENGTH_LONG).show();
+            }
+        });
     }
     public void init(){
         btn_leggi=(Button) findViewById(R.id.btn_leggi);
         btn_scrivi=(Button) findViewById(R.id.btn_scrivi);
+        btn_scrivi_bf=(Button) findViewById(R.id.btn_scrivi_bf);
         testo=(TextView) findViewById(R.id.testo);
         text=(EditText) findViewById(R.id.userText);
         gf = new GestoreFile();

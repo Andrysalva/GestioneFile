@@ -3,4 +3,5 @@
     <string name="leggi">leggi</string>
     <string name="scrivi">Scrivi</string>
     <string name="inserisci_testo">inserisci testo</string>
+    <string name="scrivi_buffer">Scrivi buffer</string>
 </resources>
