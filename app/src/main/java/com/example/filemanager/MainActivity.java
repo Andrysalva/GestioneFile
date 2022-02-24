@@ -14,8 +14,10 @@ public class MainActivity extends AppCompatActivity {
     Button btn_leggi_raw;
     Button btn_scrivi;
     Button btn_scrivi_bf;
+    Button btn_leggi_asset;
     TextView testo;
     EditText text;
+    EditText name_file;
     GestoreFile gf;
 
     @Override
@@ -51,14 +53,24 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"letto con successo", Toast.LENGTH_LONG).show();
             }
         });
+        btn_leggi_asset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String stringaricevuta = gf.leggiAssetFile(name_file.getText().toString(),getApplicationContext());
+                testo.setText(stringaricevuta);
+                Toast.makeText(getApplicationContext(),"letto con successo", Toast.LENGTH_LONG).show();
+            }
+        });
     }
     public void init(){
         btn_leggi=(Button) findViewById(R.id.btn_leggi);
         btn_leggi_raw=(Button) findViewById(R.id.btn_leggi_raw);
         btn_scrivi=(Button) findViewById(R.id.btn_scrivi);
         btn_scrivi_bf=(Button) findViewById(R.id.btn_scrivi_bf);
+        btn_leggi_asset=(Button) findViewById(R.id.btn_leggi_asset);
         testo=(TextView) findViewById(R.id.testo);
         text=(EditText) findViewById(R.id.userText);
+        name_file=(EditText) findViewById(R.id.name_file);
         gf = new GestoreFile();
     }
 }

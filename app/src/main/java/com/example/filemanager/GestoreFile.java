@@ -1,6 +1,7 @@
 package com.example.filemanager;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.util.Log;
 
@@ -81,6 +82,24 @@ public class GestoreFile {
         InputStream is= res.openRawResource(R.raw.filedaleggere);
         StringBuilder sb = new StringBuilder();
         try{
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            String str = "";
+            while((str = reader.readLine())  != null ){
+                sb.append(str + "\n");
+            }
+        } catch (FileNotFoundException e) {
+            Log.e("gestione","file inesistente");
+        } catch (IOException e) {
+            Log.e("gestione","errore nella lettura");
+        }
+        return sb.toString();
+    }
+
+    public String leggiAssetFile(String nf, Context c){
+        AssetManager mn = c.getAssets();
+        StringBuilder sb = new StringBuilder();
+        try{
+            InputStream is= mn.open(nf);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String str = "";
             while((str = reader.readLine())  != null ){

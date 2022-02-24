@@ -4,4 +4,6 @@
     <string name="scrivi">Scrivi</string>
     <string name="inserisci_testo">inserisci testo</string>
     <string name="scrivi_buffer">Scrivi buffer</string>
+    <string name="leggi_raw">Leggi Raw</string>
+    <string name="inserisci_nomefile">inserisci nomefile</string>
 </resources>
